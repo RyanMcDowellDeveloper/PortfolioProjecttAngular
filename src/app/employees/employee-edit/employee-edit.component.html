@@ -1,0 +1,85 @@
+<!-- <h1 mat-dialog-title>Hi {{data.name}}</h1> -->
+<h1 mat-dialog-title>Edit Employee</h1>
+
+<form [formGroup]="editUserForm" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content>
+        <div style="display: flex;">
+            <div class="margin-right itemWidth">
+                <mat-form-field style="width:100%;">
+                    <mat-label>First Name:</mat-label>
+                    <input matInput formControlName="firstName">
+                </mat-form-field>
+            </div>
+            <div class="margin-right itemWidth">
+                <mat-form-field style="width:100%;">
+                    <mat-label>Last Name:</mat-label>
+                    <input matInput formControlName="lastName">
+                </mat-form-field>
+            </div>
+        </div>
+        <div style="display: flex;">
+            <div class="margin-right itemWidth">
+                <mat-form-field style="width:100%;">
+                    <mat-label>Email:</mat-label>
+                    <input matInput formControlName="email">
+                </mat-form-field>
+            </div>
+            <div class="margin-right itemWidth">
+                <mat-form-field style="width:100%;">
+                    <mat-label>Phone:</mat-label>
+                    <input matInput formControlName="phone">
+                </mat-form-field>
+            </div>
+        </div>
+        <div style="display: flex;">
+            <div class="margin-right">
+                <mat-form-field>
+                    <mat-label>Address:</mat-label>
+                    <input matInput formControlName="address">
+                </mat-form-field>
+            </div>
+            <div class="margin-right">
+                <mat-form-field>
+                    <mat-label>City:</mat-label>
+                    <input matInput formControlName="city">
+                </mat-form-field>
+            </div>
+            <div class="margin-right" style="flex-grow: .5;">
+                <mat-form-field>
+                    <mat-label>State:</mat-label>
+                    <input matInput formControlName="state">
+                </mat-form-field>
+            </div>
+        </div>
+        <div style="display: flex;">
+            <div>
+                <mat-form-field>
+                    <mat-label>Employee Type</mat-label>
+                    <mat-select formControlName="employeeTypeId"> 
+                        <mat-option [value]="1">Salary</mat-option>
+                        <mat-option [value]="2">Hourly</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div style="color: red;">
+        <div *ngIf="editFormControls.firstName.errors?.required">
+            Name is required.
+        </div>
+        <div *ngIf="editFormControls.email.errors?.email || editFormControls.email.errors?.required">
+            Please enter a valid email address.
+        </div>
+        <div *ngIf="editFormControls.phone.errors?.minlength || editFormControls.phone.errors?.required">
+            Please enter a valid phone number.
+        </div>
+    </div>
+
+    <div mat-dialog-actions>
+        <button mat-button (click)="cancel()">Cancel</button>
+        <button mat-button type="submit">Update Employee</button>
+    </div>
+
+
+</form>

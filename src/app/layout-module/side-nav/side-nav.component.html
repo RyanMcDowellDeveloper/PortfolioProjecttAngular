@@ -1,0 +1,59 @@
+<div style="height: 100%;">
+    <mat-sidenav-container style="height:100%;">
+        <mat-sidenav #sidenav [(opened)]="sideNavOpened" mode="push" [class.mat-elevation-z4]="true"
+            style="width: 240px">
+            <mat-nav-list dense>
+                <mat-list-item routerLink="employee-details-table">
+                    <mat-icon>people-alt</mat-icon>Employees
+                </mat-list-item>
+                <mat-expansion-panel [class.mat-elevation-z0]="true" dense>
+                    <mat-expansion-panel-header>
+                        Reports
+                    </mat-expansion-panel-header>
+                    <mat-nav-list dense>
+                        <a mat-list-item routerLink="#">
+                            <mat-icon>attach_money</mat-icon>Billing
+                        </a>
+                        <a mat-list-item routerLink="#">
+                            <mat-icon>notification_important</mat-icon>Notification
+                        </a>
+                    </mat-nav-list>
+                </mat-expansion-panel>
+            </mat-nav-list>
+        </mat-sidenav>
+
+
+        <!-- main content -->
+        <mat-sidenav-content style="height:100%;">
+            <div>
+                <mat-toolbar color="primary" style="padding-bottom: 0;">
+                    <button mat-icon-button class="example-icon" (click)="sideNavOpened=!sideNavOpened">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                    <span>My App</span>
+                    <span style="flex: 1 1 auto;"></span>
+                    <div>
+                        <form [style.display]="searchInputVisibility">
+                            <mat-form-field class="example-full-width">
+                                <input #search matInput [(ngModel)]="searchInput" name="searchInput"
+                                    (focusout)="searchControlsSetVisibility()" #search>
+                            </mat-form-field>
+                        </form>
+                    </div>
+                    <button mat-icon-button class="example-icon favorite-icon" [style.display]="searchIconVisibility"
+                        (click)="searchControlsSetVisibility()">
+                        <mat-icon>search</mat-icon>
+                    </button>
+                    <button mat-icon-button class="example-icon favorite-icon">
+                        <mat-icon>notifications</mat-icon>
+                    </button>
+                    <button mat-icon-button class="example-icon">
+                        <mat-icon>account_circle</mat-icon>
+                    </button>
+                </mat-toolbar>
+            </div>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+
+    </mat-sidenav-container>
+</div>
