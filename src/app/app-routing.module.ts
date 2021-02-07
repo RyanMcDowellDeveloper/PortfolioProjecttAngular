@@ -5,7 +5,7 @@ import { SideNavComponent } from './layout-module/side-nav/side-nav.component';
 import {MaterialtestComponent} from './testing/materialtest/materialtest.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'sidenav', pathMatch: 'full' },
   { path: 'sidenav', component: SideNavComponent },
   { path: 'testttt', component: MaterialtestComponent },
   {
