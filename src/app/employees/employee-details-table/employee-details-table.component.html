@@ -3,9 +3,6 @@
         <mat-label>Filter</mat-label>
         <input matInput #input (keyup)="applyFilter($event.target.value)">
     </mat-form-field>
-<div>
-    <h1>EMPLOYEES</h1>
-</div>
     <div class="tableParentDiv mat-elevation-z8">
         <table mat-table [dataSource]="dataSource" matSort>
             <ng-container matColumnDef="firstName">
