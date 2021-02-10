@@ -11,6 +11,6 @@ export class EmployeesService {
     constructor(private http: HttpClient) { }
 
     GetMissingInits(): Observable<any[]> {
-        return this.http.get<any[]>('https://ryanmcdowellportfolioapi.azurewebsites.net/GetEmployees');
+        return this.http.get<any[]>('https://portfolioapiappservice.azurewebsites.net/getemployees');
     }
 }
