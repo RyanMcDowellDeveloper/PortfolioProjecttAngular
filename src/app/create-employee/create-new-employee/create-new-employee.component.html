@@ -1,0 +1,125 @@
+<div class="left-right-margin-main-content top-bottom-margin-main-content">
+    <mat-card style="width:70%;margin-left:auto;margin-right:auto">
+        <div style="text-align: center;margin-bottom: 35px;">
+            <span class="mat-display-1">Create New User Form</span>
+        </div>
+        <form [formGroup]="createUserForm" #formDirective="ngForm" (ngSubmit)="onSubmit(formDirective)">
+            <div style="text-align: center;">
+                <div style="margin-left: 5%;margin-right:5%;display: flex;flex-wrap: wrap;" class="formRow">
+                    <div class="form-control-margin-right flex-grow-equal">
+                        <mat-form-field style="width:100%;">
+                            <mat-label>First Name:</mat-label>
+                            <input matInput formControlName="FirstName">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-control-margin-right flex-grow-equal">
+                        <mat-form-field style="width:100%;">
+                            <mat-label>Last Name:</mat-label>
+                            <input matInput formControlName="LastName">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-control-margin-right flex-grow-equal">
+                        <mat-form-field style="width:100%;">
+                            <mat-label>Email:</mat-label>
+                            <input matInput formControlName="Email">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div style="margin-left: 5%;margin-right:5%;display: flex;flex-wrap: wrap" class="formRow">
+                    <div class="form-control-margin-right flex-grow-equal">
+                        <mat-form-field style="width:100%;">
+                            <mat-label>Address:</mat-label>
+                            <input matInput formControlName="Address">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-control-margin-right flex-grow-equal">
+                        <mat-form-field style="width:100%;">
+                            <mat-label>City:</mat-label>
+                            <input matInput formControlName="City">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-control-margin-right flex-grow-equal">
+                        <mat-form-field style="width:100%;">
+                            <mat-label>State:</mat-label>
+                            <input matInput formControlName="State">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div style="margin-left: 5%;margin-right:5%;display: flex;flex-wrap: wrap">
+                    <div class="form-control-margin-right flex-grow-equal">
+                        <mat-form-field style="width:100%;">
+                            <mat-label>Phone:</mat-label>
+                            <input matInput formControlName="Phone">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-control-margin-right flex-grow-equal">
+                        <mat-form-field style="width:100%;">
+                            <mat-label>Employee Type</mat-label>
+                            <mat-select formControlName="EmployeeTypeId">
+                                <mat-option></mat-option>
+                                <mat-option [value]="1">Salary</mat-option>
+                                <mat-option [value]="2">Hourly</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-control-margin-right flex-grow-equal">
+                        <mat-form-field style="width:100%;">
+                            <mat-label>Pay:</mat-label>
+                            <input matInput formControlName="PayRate" type="number">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div style="color: red;margin-left:5%;">
+                <div *ngIf="getCreateUserForm.FirstName.errors?.required && getCreateUserForm.FirstName.touched">
+                    First name is required.
+                </div>
+                <div *ngIf="getCreateUserForm.FirstName.errors?.maxlength  && getCreateUserForm.FirstName.touched">
+                    First name has too many characters.
+                </div>
+                <div *ngIf="getCreateUserForm.LastName.errors?.required && getCreateUserForm.LastName.touched">
+                    Last Name is required.
+                </div>
+                <div *ngIf="getCreateUserForm.LastName.errors?.maxlength && getCreateUserForm.LastName.touched">
+                    Last name has too many characters.
+                </div>
+                <div *ngIf="getCreateUserForm.Email.errors?.required && getCreateUserForm.Email.touched">
+                    Email Address is required.
+                </div>
+                <div *ngIf="getCreateUserForm.Email.errors?.email && getCreateUserForm.Email.touched">
+                    Please enter a valid email address.
+                </div>
+                <div *ngIf="getCreateUserForm.Email.errors?.maxlength && getCreateUserForm.Email.touched">
+                    Email address has too many characters.
+                </div>
+                <div *ngIf="getCreateUserForm.Phone.errors?.required && getCreateUserForm.Phone.touched">
+                    Phone number is required.
+                </div>
+                <div *ngIf="getCreateUserForm.Phone.errors?.minlength && getCreateUserForm.Phone.touched">
+                    Please enter a valid phone number.
+                </div>
+                <div *ngIf="getCreateUserForm.Address.errors?.required && getCreateUserForm.Address.touched">
+                    Address is required.
+                </div>
+                <div *ngIf="getCreateUserForm.Address.errors?.maxlength && getCreateUserForm.Address.touched">
+                    Address has too many characters.
+                </div>      
+                <div *ngIf="getCreateUserForm.City.errors?.required && getCreateUserForm.City.touched">
+                    City is required.
+                </div>
+                <div *ngIf="getCreateUserForm.City.errors?.maxlength && getCreateUserForm.City.touched">
+                    City has too many characters.
+                </div>
+                <div *ngIf="getCreateUserForm.State.errors?.required && getCreateUserForm.State.touched">
+                    State is required.
+                </div>
+                <div *ngIf="getCreateUserForm.State.errors?.maxlength && getCreateUserForm.State.touched">
+                    State has too many characters.
+                </div>
+            </div>
+            <div style="margin-left:5%;padding-top:30px;">
+                <button mat-raised-button color="primary" type="submit" [disabled]="isFormInvalid">Submit</button>
+            </div>
+        </form>
+    </mat-card>
+</div>

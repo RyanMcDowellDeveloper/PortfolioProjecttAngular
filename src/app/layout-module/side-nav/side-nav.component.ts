@@ -7,11 +7,6 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 export class SideNavComponent implements OnInit {
 
-  @ViewChild('search') searchElement: ElementRef;
-
-  searchInput: string;
-  searchInputVisibility: string = 'none';
-  searchIconVisibility: string = 'initial';
   sideNavOpened = false;
 
   constructor() { }
@@ -19,21 +14,10 @@ export class SideNavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  searchControlsSetVisibility() {
-    if (this.searchIconVisibility.toUpperCase() == 'INITIAL') {
-      this.searchInput = '';
-      this.searchInputVisibility = 'initial';
-      this.searchIconVisibility = 'none';
-
-      setTimeout(() => { // this will make the execution after the above boolean has changed
-        this.searchElement.nativeElement.focus();
-      }, 0);
-
-    }
-    else {
-      this.searchInputVisibility = 'none';
-      this.searchIconVisibility = 'initial';
-    }
+  sideNavOpenClick(clickVal){
+    console.log('entered');
+    console.log(clickVal);
+    this.sideNavOpened = clickVal;
   }
 
 }

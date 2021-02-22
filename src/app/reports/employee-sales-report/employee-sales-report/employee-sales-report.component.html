@@ -1,0 +1,24 @@
+<div class="left-right-margin-main-content top-bottom-margin-main-content">
+    <form [formGroup]="employeeSalesReportForm">
+        <div>
+            <mat-form-field>
+                <mat-label>Enter a date range</mat-label>
+                <mat-date-range-input [rangePicker]="picker">
+                    <input matStartDate placeholder="Start date" formControlName="selectedStartDate">
+                    <input matEndDate placeholder="End date" formControlName="selectedEndDate">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+        </div>
+        <div style="margin-bottom: 25px;">
+            <app-employees-checkbox-group (notifyParent)="getSelectedEmployees($event)"></app-employees-checkbox-group>
+        </div>
+        <div style="margin-bottom: 50px;">
+            <button mat-raised-button color="primary" (click)="onSubmit()">Get Report!</button>
+        </div>
+    </form>
+    <div [style.display]="reportResults ? 'initial' : 'none'">
+        <app-employee-sales-report-results-table [reportData]="reportResults"></app-employee-sales-report-results-table>
+    </div>
+</div>

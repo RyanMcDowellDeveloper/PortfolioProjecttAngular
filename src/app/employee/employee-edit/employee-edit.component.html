@@ -1,0 +1,125 @@
+<!-- <h1 mat-dialog-title>Hi {{data.name}}</h1> -->
+<h1 mat-dialog-title>Edit Employee</h1>
+
+<form [formGroup]="editUserForm" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content>
+        <div style="display: flex;">
+            <div class="margin-right itemWidth">
+                <mat-form-field style="width:100%;">
+                    <mat-label>First Name:</mat-label>
+                    <input matInput formControlName="FirstName">
+                </mat-form-field>
+            </div>
+            <div class="margin-right itemWidth">
+                <mat-form-field style="width:100%;">
+                    <mat-label>Last Name:</mat-label>
+                    <input matInput formControlName="LastName">
+                </mat-form-field>
+            </div>
+        </div>
+        <div style="display: flex;">
+            <div class="margin-right itemWidth">
+                <mat-form-field style="width:100%;">
+                    <mat-label>Email:</mat-label>
+                    <input matInput formControlName="Email">
+                </mat-form-field>
+            </div>
+            <div class="margin-right itemWidth">
+                <mat-form-field style="width:100%;">
+                    <mat-label>Phone:</mat-label>
+                    <input matInput formControlName="Phone">
+                </mat-form-field>
+            </div>
+        </div>
+        <div style="display: flex;">
+            <div class="margin-right">
+                <mat-form-field>
+                    <mat-label>Address:</mat-label>
+                    <input matInput formControlName="Address">
+                </mat-form-field>
+            </div>
+            <div class="margin-right">
+                <mat-form-field>
+                    <mat-label>City:</mat-label>
+                    <input matInput formControlName="City">
+                </mat-form-field>
+            </div>
+            <div class="margin-right" style="flex-grow: .5;">
+                <mat-form-field>
+                    <mat-label>State:</mat-label>
+                    <input matInput formControlName="State">
+                </mat-form-field>
+            </div>
+        </div>
+        <div style="display: flex;">
+            <div class="margin-right itemWidth">
+                <mat-form-field style="width:100%;">
+                    <mat-label>Employee Type</mat-label>
+                    <mat-select formControlName="EmployeeTypeId"> 
+                        <mat-option [value]="1">Salary</mat-option>
+                        <mat-option [value]="2">Hourly</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="margin-right itemWidth" style="flex-grow: .5;">
+                <mat-form-field style="width:100%;">
+                    <mat-label>Pay Rate:</mat-label>
+                    <input matInput type="number" formControlName="PayRate">
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div style="color: red;">
+        <div *ngIf="editFormControls.FirstName.errors?.required">
+            First name is required.
+        </div>
+        <div *ngIf="editFormControls.FirstName.errors?.maxlength">
+            First name has too many characters.
+        </div>
+        <div *ngIf="editFormControls.LastName.errors?.required">
+            Last Name is required.
+        </div>
+        <div *ngIf="editFormControls.LastName.errors?.maxlength">
+            Last name has too many characters.
+        </div>
+        <div *ngIf="editFormControls.Email.errors?.required">
+            Email Address is required.
+        </div>
+        <div *ngIf="editFormControls.Email.errors?.email">
+            Please enter a valid email address.
+        </div>
+        <div *ngIf="editFormControls.Email.errors?.maxlength">
+            Email address has too many characters.
+        </div>
+        <div *ngIf="editFormControls.Phone.errors?.required">
+            Phone number is required.
+        </div>
+        <div *ngIf="editFormControls.Phone.errors?.minlength">
+            Please enter a valid phone number.
+        </div>
+        <div *ngIf="editFormControls.Address.errors?.required">
+            Address is required.
+        </div>
+        <div *ngIf="editFormControls.Address.errors?.maxlength">
+            Address has too many characters.
+        </div>      
+        <div *ngIf="editFormControls.City.errors?.required">
+            City is required.
+        </div>
+        <div *ngIf="editFormControls.City.errors?.maxlength">
+            City has too many characters.
+        </div>
+        <div *ngIf="editFormControls.State.errors?.required">
+            State is required.
+        </div>
+        <div *ngIf="editFormControls.State.errors?.maxlength">
+            State has too many characters.
+        </div>
+    </div>
+
+    <div mat-dialog-actions>
+        <button mat-button (click)="cancel()">Cancel</button>
+        <button mat-button type="submit">Update Employee</button>
+    </div>
+</form>

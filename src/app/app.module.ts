@@ -4,12 +4,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModuleModule } from './layout-module/layout-module.module';
-import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { DemoMaterialModule } from './material-module.module';
 import { CommonModule } from '@angular/common';
-
+import {EmployeeModule} from 'src/app/employee/employee.module';
+import {CreateEmployeeModule} from 'src/app/create-employee/create-employee.module';
+import {ReusableModalMessageModule} from 'src/app/helpers/reusable-modal-message/reusable-modal-message.module';
+import { DeleteEmployeeModule } from './delete-employee/delete-employee.module';
+import {EmployeeSalesReportModule} from 'src/app/reports/employee-sales-report/employee-sales-report.module';
+import {EmployeesCheckboxGroupModule} from 'src/app/helpers/employees-checkbox-group/employees-checkbox-group.module';
+import {HomeModule} from '../app/home/home.module';
 
 @NgModule({
   declarations: [
@@ -19,13 +23,20 @@ import { CommonModule } from '@angular/common';
     BrowserModule,
     AppRoutingModule,
     RouterModule,
-    FormsModule,
     BrowserAnimationsModule,
     LayoutModuleModule,
+    EmployeeModule,
+    CreateEmployeeModule,
     HttpClientModule,
-    CommonModule 
+    CommonModule,
+    ReusableModalMessageModule,
+    CreateEmployeeModule,
+    DeleteEmployeeModule,
+    EmployeeSalesReportModule,
+    EmployeesCheckboxGroupModule,
+    HomeModule
   ],
-  exports: [DemoMaterialModule],
+  exports: [],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })

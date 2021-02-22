@@ -1,0 +1,14 @@
+<div>
+    <div style="display: flex;">
+        <div>
+            <button mat-flat-button (click)="checkAll()">Select All</button>
+        </div>
+        <div>
+            <button mat-flat-button (click)="uncheckAll()">Unselect All</button>
+        </div>
+    </div>
+    <div style="display: flex;flex-wrap: wrap;height:200px;overflow-y: scroll;padding:3%;" class="mat-elevation-z8">
+        <mat-checkbox type="checkbox" [formControl]="control" *ngFor="let control of UsersArray.controls;let i = index;"
+            (change)="getSelectedEmployees()" style="width:20%;">{{employees[i].firstName  + ' ' + employees[i].lastName}}</mat-checkbox>
+    </div>
+</div> 

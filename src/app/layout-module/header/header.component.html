@@ -1,0 +1,31 @@
+<div>
+    <mat-toolbar color="primary" style="padding-bottom: 0;">
+        <button mat-icon-button class="example-icon" (click)="openSidenavClick()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>Ryan McDowell Portfolio App</span>
+        <span style="flex: 1 1 auto;"></span>
+        <div>
+            <form [style.display]="searchInputVisibility">
+                <mat-form-field class="example-full-width">
+                    <input #search matInput [(ngModel)]="searchInput" name="searchInput"
+                        (focusout)="searchControlsSetVisibility()" #search matTooltip="Not yet implemented.
+                        Only so much you can do in one weekend!">
+                </mat-form-field>
+            </form>
+        </div>
+        <button mat-icon-button class="example-icon favorite-icon" [style.display]="searchIconVisibility"
+            (click)="searchControlsSetVisibility()" matTooltip="Not yet implemented.
+            Only so much you can do in one weekend!">
+            <mat-icon>search</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon favorite-icon" matTooltip="Not yet implemented.
+        Only so much you can do in one weekend!">
+            <mat-icon>notifications</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" matTooltip="Not yet implemented.
+        Only so much you can do in one weekend!">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+    </mat-toolbar>
+</div>
