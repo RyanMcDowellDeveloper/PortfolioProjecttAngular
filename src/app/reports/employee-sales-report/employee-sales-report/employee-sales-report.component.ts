@@ -48,14 +48,28 @@ export class EmployeeSalesReportComponent implements OnInit {
 
   populateReportParams(){
     this.reportParamsModel = new EmployeeSalesReportParams;
+
     if(this.selectedEmployees){
     this.reportParamsModel.employeeId = this.selectedEmployees.map(id => id.userId);
     }
+
     this.reportParamsModel.endDate = this.employeeSalesReportForm.get('selectedEndDate').value;
+
+    if(!this.reportParamsModel.endDate){
+      this.reportParamsModel.endDate = new Date();
+    }
+
     this.reportParamsModel.startDate = this.employeeSalesReportForm.get('selectedStartDate').value;
+
+    if(!this.reportParamsModel.startDate){
+      this.reportParamsModel.startDate = new Date(1900,1,1);
+    }
+
+    console.log(this.reportParamsModel);
   }
 
   onSubmit() {
+    console.log(this.reportParamsModel);
     this.populateReportParams();
     this.employeeSalesReportService.GetEmployeeSalesReport(this.reportParamsModel).subscribe(data => {
       this.reportResults = data;
