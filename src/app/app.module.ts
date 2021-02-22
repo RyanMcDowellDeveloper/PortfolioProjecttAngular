@@ -14,6 +14,7 @@ import { DeleteEmployeeModule } from './delete-employee/delete-employee.module';
 import {EmployeeSalesReportModule} from 'src/app/reports/employee-sales-report/employee-sales-report.module';
 import {EmployeesCheckboxGroupModule} from 'src/app/helpers/employees-checkbox-group/employees-checkbox-group.module';
 import {HomeModule} from '../app/home/home.module';
+import {TotalSalesByEmployeeModule} from 'src/app/reports/total-sales-by-employee/total-sales-by-employee.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {HomeModule} from '../app/home/home.module';
     DeleteEmployeeModule,
     EmployeeSalesReportModule,
     EmployeesCheckboxGroupModule,
-    HomeModule
+    HomeModule,
+    TotalSalesByEmployeeModule
   ],
   exports: [],
   providers: [HttpClientModule],
