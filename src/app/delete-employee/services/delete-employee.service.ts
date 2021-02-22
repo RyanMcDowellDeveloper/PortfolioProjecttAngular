@@ -12,6 +12,6 @@ export class DeleteEmployeeService {
 
   DeleteEmployee(employeeId: number): Observable<Response> {
     console.log(employeeId);
-    return this.http.delete<Response>('https://localhost:44309/DeleteEmployee?employeeId=' + employeeId);
+    return this.http.delete<Response>('https://portfolioapiappservice.azurewebsites.net/DeleteEmployee?employeeId=' + employeeId);
   }
 }

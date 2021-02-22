@@ -12,7 +12,7 @@ export class CreateEmployeeServiceService {
 
   CreateEmployee(employee: EmployeesModelData) {
     console.log(employee);
-    return this.http.post<EmployeesModelData>('https://localhost:44309/CreateEmployee'
+    return this.http.post<EmployeesModelData>('https://portfolioapiappservice.azurewebsites.net/CreateEmployee'
       , JSON.stringify(employee)
       , { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
     );
