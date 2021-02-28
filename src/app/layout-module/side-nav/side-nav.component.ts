@@ -15,8 +15,6 @@ export class SideNavComponent implements OnInit {
   }
 
   sideNavOpenClick(clickVal){
-    console.log('entered');
-    console.log(clickVal);
     this.sideNavOpened = clickVal;
   }
 

@@ -1,0 +1,25 @@
+<div class="left-right-margin-main-content top-bottom-margin-main-content">
+    <mat-form-field style="width: 100%;margin-bottom: 2px0;">
+        <mat-label>Filter</mat-label>
+        <input matInput #input (keyup)="applyFilter($event.target.value)">
+    </mat-form-field>
+    <div class="tableParentDiv mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="employeeName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Employee </th>
+                <td mat-cell *matCellDef="let element"> {{element.employeeName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="salesCount">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Number of Sales </th>
+                <td mat-cell *matCellDef="let element"> {{element.salesCount}} </td>
+            </ng-container>
+            <ng-container matColumnDef="salesSum">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Combined Sales Amount </th>
+                <td mat-cell *matCellDef="let element"> {{element.salesSum | currency}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+    <mat-paginator [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons></mat-paginator>
+</div>

@@ -5,6 +5,7 @@ import { CreateNewEmployeeComponent } from 'src/app/create-employee/create-new-e
 import { EmployeeSalesReportComponent } from './reports/employee-sales-report/employee-sales-report/employee-sales-report.component';
 import { HomeComponent } from './home/home/home.component';
 import { TotalSalesByEmployeeComponent } from './reports/total-sales-by-employee/total-sales-by-employee/total-sales-by-employee.component';
+import { WeatherAppComponent } from '../app/weather-app/weather-app/weather-app.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'employeedetails', component: EmployeeDetailsTableComponent },
   { path: 'createemployee', component: CreateNewEmployeeComponent },
   { path: 'employeesalesreport', component: EmployeeSalesReportComponent },
-  { path: 'totalemployeesalesreport', component: TotalSalesByEmployeeComponent }
+  { path: 'totalemployeesalesreport', component: TotalSalesByEmployeeComponent },
+  { path: 'weatherservice', component: WeatherAppComponent }
 ];
 
 

@@ -1,0 +1,13 @@
+<div>
+    <form class="cities-form" [formGroup] = "">
+        <mat-form-field class="example-full-width" style="width:100%;">
+            <input type="text" placeholder="Enter City" aria-label="Number" matInput [formControl]="myControl"
+                [matAutocomplete]="auto" (click)="onKey()" (blur)="onKey()">
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let f of filteredOptions | async" [value]="f.city1" [id]="f.city1">
+                    {{f.city1}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </form>
+</div>

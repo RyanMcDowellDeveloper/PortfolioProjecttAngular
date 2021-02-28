@@ -1,19 +1,24 @@
 <div class="left-right-margin-main-content top-bottom-margin-main-content">
-    <div style="display: flex;">
-        <div class="margin-right itemWidth" style="flex-grow: .5;margin-right:10%;">
-            <mat-form-field style="width:100%;">
-                <mat-label>Minimum Salary:</mat-label>
-                <input matInput type="number" formControlName="minSalaryCriteria">
-            </mat-form-field>
+    <form [formGroup]="reportCriteriaForm" (ngSubmit)="onSubmit()">
+        <div style="display: flex;">
+            <div class="margin-right itemWidth" style="flex-grow: .5;margin-right:10%;">
+                <mat-form-field style="width:100%;">
+                    <mat-label>Minimum Salary:</mat-label>
+                    <input matInput type="number" formControlName="minSalaryCriteria">
+                </mat-form-field>
+            </div>
+            <div class="margin-right itemWidth" style="flex-grow: .5;">
+                <mat-form-field style="width:100%;">
+                    <mat-label>Maximum Salary:</mat-label>
+                    <input matInput type="number" formControlName="maxSalaryCriteria">
+                </mat-form-field>
+            </div>
         </div>
-        <div class="margin-right itemWidth" style="flex-grow: .5;">
-            <mat-form-field style="width:100%;">
-                <mat-label>Maximum Salary:</mat-label>
-                <input matInput type="number" formControlName="maxSalaryCriteria">
-            </mat-form-field>
+        <div>
+            <button mat-raised-button color="primary">Get Report!</button>
         </div>
-    </div>
-    <div>
-        <button mat-raised-button color="primary">Get Report!</button>
-    </div>
+    </form>
+</div>
+<div [style.display]="reportData ? 'initial' : 'none'">
+    <app-total-sales-by-employee-table [reportData]="reportData"></app-total-sales-by-employee-table>
 </div>

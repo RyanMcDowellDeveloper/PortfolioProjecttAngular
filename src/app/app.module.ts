@@ -15,6 +15,9 @@ import {EmployeeSalesReportModule} from 'src/app/reports/employee-sales-report/e
 import {EmployeesCheckboxGroupModule} from 'src/app/helpers/employees-checkbox-group/employees-checkbox-group.module';
 import {HomeModule} from '../app/home/home.module';
 import {TotalSalesByEmployeeModule} from 'src/app/reports/total-sales-by-employee/total-sales-by-employee.module';
+import {WeatherAppModule} from '../app/weather-app/weather-app.module';
+import {SharedGetServiceService} from '../app/helpers/services/shared-get-service.service';
+import {ProgressBarModule} from '../app/helpers/progress-bar/progress-bar.module';
 
 @NgModule({
   declarations: [
@@ -36,10 +39,12 @@ import {TotalSalesByEmployeeModule} from 'src/app/reports/total-sales-by-employe
     EmployeeSalesReportModule,
     EmployeesCheckboxGroupModule,
     HomeModule,
-    TotalSalesByEmployeeModule
+    TotalSalesByEmployeeModule,
+    WeatherAppModule,
+    ProgressBarModule
   ],
   exports: [],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule,SharedGetServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

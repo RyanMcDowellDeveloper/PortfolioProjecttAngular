@@ -1,0 +1,31 @@
+<div class="left-right-margin-main-content top-bottom-margin-main-content">
+    <app-select-cities-autopopulate (notifyParent)="getSelectedCity($event)"></app-select-cities-autopopulate>
+    <div style="margin-bottom: 25px;">
+        <button mat-raised-button color="primary" (click)="getForecast()">Get Forecast!</button>
+    </div>
+    <!-- <div *ngIf="weatherData;"> -->
+    <div *ngIf="weatherData">
+        <mat-card>
+            <div style="align-self: center;">
+                <h2 class="mat-display-1" style="margin-bottom:20px;">Weather Results for {{selectedCity}}</h2>
+            </div>
+            <div style="align-self: center;">
+                <h3 style="margin-bottom:20px;">Current Temperature: {{currentTemp}}&#8457;</h3>
+            </div>
+            <div style="display: flex;flex-wrap: wrap;">
+                <div style="align-self: center;">
+                    <h3 style="margin-bottom:20px;">Weather Forecast is {{tempDescription | titlecase}}</h3>
+                </div>
+                <div>
+                    <img src={{iconUrl}}>
+                </div>
+            </div>
+            <div>
+                <h3 style="margin-bottom:20px;">Wind Speed is 1.5</h3>
+            </div>
+        </mat-card>
+    </div>
+    <div *ngIf="locationNotFound">
+        <h2>Weather Data For This Location Could Not Be Found.</h2>
+    </div>
+</div>

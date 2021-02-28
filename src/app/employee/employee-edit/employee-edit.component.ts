@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dial
 import { EmployeesModelData } from '../../employee/employee-details-table/models/employees-model';
 import { EmployeesService } from '../../employee/employee-details-table/services/employees.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ProgressBarComponent } from 'src/app/helpers/progress-bar/progress-bar/progress-bar.component';
 
 @Component({
   selector: 'app-employee-edit',
@@ -15,7 +16,8 @@ export class EmployeeEditComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<EmployeeEditComponent>
     , @Inject(MAT_DIALOG_DATA) public data: any
-    , private employeeService: EmployeesService) { }
+    , private employeeService: EmployeesService
+    ,public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.populateForm();
@@ -42,18 +44,28 @@ export class EmployeeEditComponent implements OnInit {
   
 
   onSubmit() {
+    this.openDialog();
     if (this.editUserForm.valid) {
-
       this.employeeService.UpdateEmployee(this.editUserForm.value).subscribe(data => {
         this.editUserForm.reset();
+        this.closeDialog();
         this.dialogRef.close();
       }, err => {
+        this.closeDialog();
       })
     }
   }
 
   cancel() {
     this.dialogRef.close();
+  }
+
+  openDialog() {
+    this.dialog.open(ProgressBarComponent, { disableClose: true });
+  }
+
+  closeDialog() {
+    this.dialog.closeAll();
   }
 
 }
