@@ -18,6 +18,7 @@ import {TotalSalesByEmployeeModule} from 'src/app/reports/total-sales-by-employe
 import {WeatherAppModule} from '../app/weather-app/weather-app.module';
 import {SharedGetServiceService} from '../app/helpers/services/shared-get-service.service';
 import {ProgressBarModule} from '../app/helpers/progress-bar/progress-bar.module';
+import {ResumeModule} from '../app/resume/resume.module'
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {ProgressBarModule} from '../app/helpers/progress-bar/progress-bar.module
     HomeModule,
     TotalSalesByEmployeeModule,
     WeatherAppModule,
-    ProgressBarModule
+    ProgressBarModule,
+    ResumeModule
   ],
   exports: [],
   providers: [HttpClientModule,SharedGetServiceService],

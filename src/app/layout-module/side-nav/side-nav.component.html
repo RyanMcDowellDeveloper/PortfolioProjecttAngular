@@ -4,7 +4,7 @@
             style="width: 240px">
             <mat-nav-list dense style="padding-top:25px;">
                 <div style="padding-left:24px;padding-right:24px;margin-bottom: 10px;">
-                    <a routerLink="home">
+                    <a routerLink="home" (click)="sidenav.close()">
                         <mat-icon>house</mat-icon>Home
                     </a>
                 </div>
@@ -46,6 +46,16 @@
                     <mat-nav-list dense>
                         <a mat-list-item routerLink="weatherservice" (click)="sidenav.close()">
                             Weather Service
+                        </a>
+                    </mat-nav-list>
+                </mat-expansion-panel>
+                <mat-expansion-panel [class.mat-elevation-z0]="true" dense>
+                    <mat-expansion-panel-header>
+                        <mat-icon>person</mat-icon>About Me
+                    </mat-expansion-panel-header>
+                    <mat-nav-list dense>
+                        <a mat-list-item routerLink="resume" (click)="sidenav.close()">
+                            Resume
                         </a>
                     </mat-nav-list>
                 </mat-expansion-panel>
