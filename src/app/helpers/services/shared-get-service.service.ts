@@ -11,7 +11,7 @@ export class SharedGetServiceService {
   constructor(private http: HttpClient) { }
 
   GetUsaCities(): Observable<UsaCitiesModel[]> {
-    return this.http.get<UsaCitiesModel[]>('https://localhost:44309/GetListUsaCities');
+    return this.http.get<UsaCitiesModel[]>('https://portfolioapiappservice.azurewebsites.net/GetListUsaCities');
   }
 
 } 

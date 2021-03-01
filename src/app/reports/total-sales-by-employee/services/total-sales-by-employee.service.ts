@@ -12,7 +12,7 @@ export class TotalSalesByEmployeeService {
   constructor(private http: HttpClient) { }
 
   GetTotalSalesByEmployeeReport(reportParams: TotalSalesByEmployeeParams): Observable<TotalSalesByEmployeeData[]> {
-    return this.http.post<TotalSalesByEmployeeData[]>('https://localhost:44309/GetEmployeeTotalSalesReport'
+    return this.http.post<TotalSalesByEmployeeData[]>('https://portfolioapiappservice.azurewebsites.net/GetEmployeeTotalSalesReport'
       , JSON.stringify(reportParams)
       , { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
     );
